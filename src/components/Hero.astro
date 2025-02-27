@@ -1,0 +1,61 @@
+---
+import Button from './Button.astro';
+import Carousel3D from './Carousel3D.astro';
+
+const techs = [
+  { icon: 'devicon:javascript', name: 'JavaScript' },
+  { icon: 'devicon:typescript', name: 'TypeScript' },
+  { icon: 'devicon:nodejs', name: 'Node.js' },
+  {icon: 'devicon:react', name: 'React'},
+  {icon: 'devicon:tailwindcss', name: 'Tailwind CSS'},
+  {icon: 'devicon:github', name: 'GitHub'},
+  {icon: 'devicon:astro', name: 'Astro'},
+  {icon: 'devicon:nextjs', name: 'Next.js'},
+  {icon: "devicon:firebase", name: "Firebase"},
+  {icon: 'devicon:supabase', name: 'Supabase'},
+ 
+];
+---
+
+<section class="py-20 md:py-32 relative overflow-hidden mx-auto">
+  <!-- Background gradient -->
+  <div
+    class="absolute inset-0 bg-gradient-to-br from-primary/5 to-secondary/5 -z-10 "
+  >
+  </div>
+
+  <!-- Animated shapes -->
+  <div
+    class="absolute top-20 right-10 w-64 h-64 bg-primary/10 rounded-full blur-3xl -z-10 animate-float"
+  >
+  </div>
+  <div
+    class="absolute bottom-10 left-10 w-72 h-72 bg-secondary/10 rounded-full blur-3xl -z-10 animate-float"
+    style="animation-delay: 2s;"
+  >
+  </div>
+
+  <div class="container mx-auto px-4 lg:flex  ">
+    <div class="max-w-2xl">
+      <h1
+        class="text-4xl md:text-5xl lg:text-6xl font-heading font-bold leading-tight mb-6"
+      >
+        Crafting <span
+          class="bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent"
+          >innovative</span
+        > digital experiences
+      </h1>
+
+      <p class="text-xl text-gray-700 mb-8">
+        I'm a passionate developer specializing in modern web technologies,
+        creating elegant solutions to complex problems.
+      </p>
+
+      <div class="flex flex-wrap gap-4">
+        <Button href="#projects">View My Work</Button>
+        <Button href="#contact" variant="outline">Get In Touch</Button>
+      </div>
+    </div>
+    <Carousel3D images={techs} />
+  </div>
+</section>
