@@ -1,0 +1,170 @@
+<header class="sticky top-0 z-50 bg-white/90 dark:bg-gray-900/90 backdrop-blur-md border-b border-gray-200 dark:border-gray-800 shadow-sm">
+    <div class="container mx-auto px-4 py-4 flex justify-between items-center">
+      <a href="/" class="text-2xl font-heading font-bold bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent relative overflow-hidden group">
+        Portfolio
+        <span class="absolute bottom-0 left-0 w-0 h-0.5 bg-gradient-to-r from-primary to-secondary group-hover:w-full transition-all duration-300"></span>
+      </a>
+      
+      <!-- Menú para escritorio -->
+      <nav class="hidden md:block">
+        <ul class="flex gap-8">
+          <li>
+            <a href="#about" class="font-medium text-gray-700 dark:text-gray-300 hover:text-accent relative overflow-hidden group">
+              About
+              <span class="absolute bottom-0 left-0 w-0 h-0.5 bg-accent group-hover:w-full transition-all duration-300"></span>
+            </a>
+          </li>
+          <li>
+            <a href="#skills" class="font-medium text-gray-700 dark:text-gray-300 hover:text-accent relative overflow-hidden group">
+              Skills
+              <span class="absolute bottom-0 left-0 w-0 h-0.5 bg-accent group-hover:w-full transition-all duration-300"></span>
+            </a>
+          </li>
+          <li>
+            <a href="#projects" class="font-medium text-gray-700 dark:text-gray-300 hover:text-accent relative overflow-hidden group">
+              Projects
+              <span class="absolute bottom-0 left-0 w-0 h-0.5 bg-accent group-hover:w-full transition-all duration-300"></span>
+            </a>
+          </li>
+          <li>
+            <a href="#contact" class="font-medium text-gray-700 dark:text-gray-300 hover:text-accent relative overflow-hidden group">
+              Contact
+              <span class="absolute bottom-0 left-0 w-0 h-0.5 bg-accent group-hover:w-full transition-all duration-300"></span>
+            </a>
+          </li>
+        </ul>
+      </nav>
+      
+      <!-- Botón menú hamburguesa para móviles -->
+      <button id="menu-toggle" class="md:hidden flex flex-col justify-center items-center w-10 h-10 relative z-50 text-accent  hover:text-gray-300">
+        <span class="hamburger-line"></span>
+        <span class="hamburger-line"></span>
+        <span class="hamburger-line"></span>
+      </button>
+      
+      <!-- Menú móvil desplegable -->
+      <div id="mobile-menu" class="fixed inset-0 bg-black/65 dark:bg-gray-900/98 z-40 flex items-center justify-center transition-transform duration-300 transform translate-x-full md:hidden">
+        <nav class="relative w-full h-full bg-black/40" >
+          <ul class="flex flex-col gap-8 text-center absolute top-16 right-0 dark:bg-gray-800 p-4 rounded-lg">
+            <li>
+              <a href="#about" class="text-xl font-medium text-gray-800 dark:text-gray-200 hover:text-accent mobile-link">
+                About
+              </a>
+            </li>
+            <li>
+              <a href="#skills" class="text-xl font-medium text-gray-800 dark:text-gray-200 hover:text-accent mobile-link">
+                Skills
+              </a>
+            </li>
+            <li>
+              <a href="#projects" class="text-xl font-medium text-gray-800 dark:text-gray-200 hover:text-accent mobile-link">
+                Projects
+              </a>
+            </li>
+            <li>
+              <a href="#contact" class="text-xl font-medium text-gray-800 dark:text-gray-200 hover:text-accent mobile-link">
+                Contact
+              </a>
+            </li>
+          </ul>
+        </nav>
+      </div>
+    </div>
+  </header>
+  
+  <style>
+    /* Estilos para las líneas del menú hamburguesa */
+    .hamburger-line {
+      width: 24px;
+      height: 2px;
+      background-color: currentColor;
+      margin: 3px 0;
+      transition: transform 0.3s, opacity 0.3s;
+      display: block;
+    }
+    
+    /* Animación para el menú hamburguesa cuando está activo */
+    .menu-open .hamburger-line:nth-child(1) {
+      transform: translateY(8px) rotate(45deg);
+    }
+    
+    .menu-open .hamburger-line:nth-child(2) {
+      opacity: 0;
+    }
+    
+    .menu-open .hamburger-line:nth-child(3) {
+      transform: translateY(-8px) rotate(-45deg);
+    }
+    
+    /* Añadir una animación suave al menú móvil */
+    #mobile-menu.open {
+      transform: translateX(0);
+    }
+    
+    /* Animación para los enlaces del menú móvil */
+    .mobile-link {
+      position: relative;
+      display: inline-block;
+      padding: 0.5rem 1rem;
+    }
+    
+    .mobile-link::after {
+      content: '';
+      position: absolute;
+      width: 0;
+      height: 2px;
+      bottom: 0;
+      left: 50%;
+      background: linear-gradient(to right, var(--color-primary), var(--color-secondary));
+      transition: width 0.3s ease, left 0.3s ease;
+    }
+    
+    .mobile-link:hover::after {
+      width: 80%;
+      left: 10%;
+    }
+  </style>
+  
+  <script>
+    // Script para controlar el menú móvil
+    document.addEventListener('DOMContentLoaded', () => {
+      const menuToggle = document.getElementById('menu-toggle');
+      const mobileMenu = document.getElementById('mobile-menu');
+      const mobileLinks = document.querySelectorAll('.mobile-link');
+      
+      // Función para alternar el menú
+      function toggleMenu() {
+        menuToggle.classList.toggle('menu-open');
+        mobileMenu.classList.toggle('open');
+        
+        // Bloquear el scroll cuando el menú está abierto
+        document.body.style.overflow = menuToggle.classList.contains('menu-open') ? 'hidden' : '';
+      }
+      
+      // Event listeners
+      menuToggle.addEventListener('click', toggleMenu);
+      
+      // Cerrar el menú al hacer clic en un enlace
+      mobileLinks.forEach(link => {
+        link.addEventListener('click', () => {
+          toggleMenu();
+          
+          // Pequeño retardo para permitir que el menú se cierre antes de desplazarse
+          setTimeout(() => {
+            const targetId = link.getAttribute('href');
+            const targetElement = document.querySelector(targetId);
+            if (targetElement) {
+              targetElement.scrollIntoView({ behavior: 'smooth' });
+            }
+          }, 300);
+        });
+      });
+      
+      // Cerrar el menú al redimensionar la ventana a un tamaño de escritorio
+      window.addEventListener('resize', () => {
+        if (window.innerWidth >= 768 && menuToggle.classList.contains('menu-open')) {
+          toggleMenu();
+        }
+      });
+    });
+  </script>

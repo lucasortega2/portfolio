@@ -1,0 +1,55 @@
+---
+import ProjectCard from './ProjectCard.astro';
+import Button from './Button.astro';
+
+const projects = [
+  {
+    title: "E-Commerce Platform",
+    description: "A modern e-commerce platform built with React, Node.js, and MongoDB. Features include user authentication, product catalog, shopping cart, and payment processing.",
+    image: "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80",
+    tags: ["React", "Node.js", "MongoDB", "Stripe API"],
+    link: "#"
+  },
+  {
+    title: "Task Management App",
+    description: "A collaborative task management application with real-time updates, drag-and-drop functionality, and team collaboration features.",
+    image: "https://images.unsplash.com/photo-1540350394557-8d14678e7f91?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80",
+    tags: ["TypeScript", "React", "Firebase", "Material UI"],
+    link: "#"
+  },
+  {
+    title: "Weather Dashboard",
+    description: "A responsive weather dashboard that displays current weather conditions and forecasts for multiple locations using the OpenWeather API.",
+    image: "https://images.unsplash.com/photo-1592210454359-9043f067919b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80",
+    tags: ["JavaScript", "React", "Chart.js", "API Integration"],
+    link: "#"
+  }
+];
+---
+
+<section id="projects" class="py-20">
+  <div class="container mx-auto px-4">
+    <div class="max-w-3xl mx-auto text-center mb-16">
+      <h2 class="text-3xl md:text-4xl font-heading font-bold mb-4">Featured Projects</h2>
+      <div class="h-1 w-20 bg-gradient-to-r from-primary to-secondary rounded-full mx-auto mb-6"></div>
+      <p class="text-gray-700">
+        Here are some of my recent projects that showcase my technical skills and problem-solving abilities.
+      </p>
+    </div>
+    
+    <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mb-12">
+      {projects.map(project => (
+        <ProjectCard {...project} />
+      ))}
+    </div>
+    
+    <div class="text-center">
+      <Button href="https://github.com" variant="outline">
+        View More Projects
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 ml-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+        </svg>
+      </Button>
+    </div>
+  </div>
+</section>
