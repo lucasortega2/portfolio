@@ -9,6 +9,7 @@ const {
   title,
   description = 'Professional portfolio showcasing technical skills and expertise in modern web development.',
 } = Astro.props;
+import Header from '../components/Header.astro';
 ---
 
 <!doctype html>
@@ -23,6 +24,7 @@ const {
   </head>
   <body class="bg-white dark:bg-gray-900 overflow-x-hidden">
     <div class="min-h-screen flex flex-col">
+      <Header client:load />
       <main class="flex-grow">
         <slot />
       </main>
