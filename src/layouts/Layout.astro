@@ -24,7 +24,7 @@ import Header from '../components/Header.astro';
   </head>
   <body class="bg-light dark:bg-dark">
     <div class="min-h-screen flex flex-col">
-      <Header client:load />
+      <Header />
       <main class="flex-grow">
         <slot />
       </main>
@@ -96,22 +96,5 @@ import Header from '../components/Header.astro';
         </div>
       </footer>
     </div>
-
-    <script>
-      // Add smooth scrolling for anchor links
-      document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
-        anchor.addEventListener('click', function (e) {
-          e.preventDefault();
-
-          const target = document.querySelector(this.getAttribute('href'));
-          if (target) {
-            window.scrollTo({
-              top: target.offsetTop - 80,
-              behavior: 'smooth',
-            });
-          }
-        });
-      });
-    </script>
   </body>
 </html>
