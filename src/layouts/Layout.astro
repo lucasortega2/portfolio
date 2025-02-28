@@ -13,7 +13,7 @@ import Header from '../components/Header.astro';
 ---
 
 <!doctype html>
-<html lang="en" class="scroll-smooth">
+<html lang="en" class="scroll-smooth overflow-x-hidden">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width" />
@@ -22,7 +22,7 @@ import Header from '../components/Header.astro';
     <meta name="description" content={description} />
     <title>{title}</title>
   </head>
-  <body class="bg-light dark:bg-dark">
+  <body class="bg-light dark:bg-dark overflow-x-hidden">
     <div class="min-h-screen flex flex-col">
       <Header />
       <main class="flex-grow">

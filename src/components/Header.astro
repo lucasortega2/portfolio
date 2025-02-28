@@ -1,6 +1,11 @@
 <header
-  class="sticky top-0 z-50 bg-white/90 dark:bg-gray-900/90 backdrop-blur-md border-b border-gray-200 dark:border-gray-800 shadow-sm"
+  class="fixed w-full z-50 bg-white/90 dark:bg-gray-900/90 backdrop-blur-md border-b border-gray-200 dark:border-gray-800 shadow-sm"
 >
+  <div
+    id="cover"
+    class="bg-black absolute top-0 right-0 h-screen w-full opacity-25 z-10 hidden"
+  >
+  </div>
   <div class="container mx-auto px-4 py-4 flex justify-between items-center">
     <a
       href="/"
@@ -73,54 +78,47 @@
     </button>
 
     <!-- Menú móvil desplegable -->
+
     <div
       id="mobile-menu"
-      class="fixed inset-0 flex items-center justify-center transition-all duration-300 transform opacity-0 pointer-events-none"
+      class="absolute top-0 right-0 flex items-center justify-center transition-all duration-300 transform opacity-0 z-51"
     >
-      <div
-        id="cover"
-        class="bg-black absolute top-0 left-0 w-screen h-screen opacity-25 z-50"
+      <ul
+        class="flex flex-col gap-8 text-center absolute top-16 right-0 dark:bg-gray-800 p-4 rounded-lg"
       >
-      </div>
-
-      <nav class="w-full z-1000">
-        <ul
-          class="flex flex-col gap-8 text-center absolute top-16 right-0 dark:bg-gray-800 p-4 rounded-lg"
-        >
-          <li>
-            <a
-              href="#about"
-              class="text-xl font-medium text-gray-800 dark:text-gray-200 hover:text-accent mobile-link"
-            >
-              About
-            </a>
-          </li>
-          <li>
-            <a
-              href="#skills"
-              class="text-xl font-medium text-gray-800 dark:text-gray-200 hover:text-accent mobile-link"
-            >
-              Skills
-            </a>
-          </li>
-          <li>
-            <a
-              href="#projects"
-              class="text-xl font-medium text-gray-800 dark:text-gray-200 hover:text-accent mobile-link"
-            >
-              Projects
-            </a>
-          </li>
-          <li>
-            <a
-              href="#contact"
-              class="text-xl font-medium text-gray-800 dark:text-gray-200 hover:text-accent mobile-link"
-            >
-              Contact
-            </a>
-          </li>
-        </ul>
-      </nav>
+        <li>
+          <a
+            href="#about"
+            class="text-xl font-medium text-gray-800 dark:text-gray-200 hover:text-accent mobile-link"
+          >
+            About
+          </a>
+        </li>
+        <li>
+          <a
+            href="#skills"
+            class="text-xl font-medium text-gray-800 dark:text-gray-200 hover:text-accent mobile-link"
+          >
+            Skills
+          </a>
+        </li>
+        <li>
+          <a
+            href="#projects"
+            class="text-xl font-medium text-gray-800 dark:text-gray-200 hover:text-accent mobile-link"
+          >
+            Projects
+          </a>
+        </li>
+        <li>
+          <a
+            href="#contact"
+            class="text-xl font-medium text-gray-800 dark:text-gray-200 hover:text-accent mobile-link"
+          >
+            Contact
+          </a>
+        </li>
+      </ul>
     </div>
   </div>
 </header>
@@ -139,8 +137,8 @@
   }
 
   .menu-active {
-    opacity: 1 !important;
-    pointer-events: auto !important;
+    opacity: 1;
+    pointer-events: auto;
   }
 
   /* Animación para el menú hamburguesa cuando está activo */
@@ -160,7 +158,6 @@
 
   /* Animación para los enlaces del menú móvil */
   .mobile-link {
-    position: relative;
     display: inline-block;
     padding: 0.5rem 1rem;
   }
@@ -204,6 +201,7 @@
       document.body.style.overflow = menuToggle.classList.contains('menu-open')
         ? 'hidden'
         : '';
+      cover.classList.toggle('hidden');
     }
 
     // Event listeners
