@@ -1,60 +1,43 @@
 ---
 const { images } = Astro.props;
-import {Icon} from "astro-icon/components";
-
-// Función para generar distribución angular basada en el número total de iconos
-const getRotationOffset = (totalIcons) => {
-  return 360 / totalIcons;
-};
+import { Icon } from 'astro-icon/components';
 ---
 
 <div class="w-max h-max m-auto py-12">
-  <div class="carousel-container">
+  <div
+    class="flex justify-center items-center relative mt-20 perspective-distant"
+  >
     {
       images.map((image: any, index: number) => {
         const totalIcons = images.length;
-        const rotationOffset = getRotationOffset(totalIcons);
-        
+
         return (
-          <div 
-            class="tarjeta"
-            data-name={image.name || ""}
-            style={`animation-delay: ${-index * (14/totalIcons)}s;`}
+          <div
+            class="tarjeta animate-pulse"
+            data-name={image.name || ''}
+            style={`animation-delay: ${-index * (16 / totalIcons)}s;`}
           >
-            <div class="icon-wrapper">
+            <div class="icon-wrapper ">
               <Icon name={image.icon} size={40} />
             </div>
             <div class="tooltip">{image.name || image.icon}</div>
           </div>
-        )
+        );
       })
     }
-    <div class="carousel-base"></div>
+    <div
+      class="carousel-base absolute w-72 h-14 lg:h-42 top-10 rounded-full bg-gradient-to-tl from-secondary/60 to-primary blur-3xl animate-pulse"
+    >
+    </div>
   </div>
 </div>
 
 <style>
-  .carousel-container {
-    perspective: 800px;
-    width: 450px;
-    height: 250px;
-    position: relative;
-    margin: 0 auto;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
-  
   .carousel-base {
-    position: absolute;
-    width: 300px;
-    height: 100px;
-    bottom: -20px;
-    border-radius: 50%;
-    background: radial-gradient(circle, rgba(30,41,59,0.5) 0%, rgba(30,41,59,0) 70%);
     transform: rotateX(90deg) translateZ(-30px);
-    filter: blur(8px);
+    filter: blur(12px);
     z-index: -1;
+    opacity: 0.8;
   }
 
   .tarjeta {
@@ -68,11 +51,12 @@ const getRotationOffset = (totalIcons) => {
     border-radius: 16px;
     text-align: center;
     cursor: pointer;
-    animation: Carrusel 14s linear infinite;
+    animation: Carrusel 16s linear infinite;
     transform-origin: center center;
     transform-style: preserve-3d;
     transition: all 0.3s ease;
-    filter: drop-shadow(0 10px 8px rgb(0 0 0 / 0.04)) drop-shadow(0 4px 3px rgb(0 0 0 / 0.1));
+    filter: drop-shadow(0 10px 15px rgba(91, 33, 182, 0.4))
+      drop-shadow(0 4px 6px rgba(76, 29, 149, 0.3));
   }
 
   .icon-wrapper {
@@ -81,41 +65,45 @@ const getRotationOffset = (totalIcons) => {
     display: flex;
     justify-content: center;
     align-items: center;
-    background: rgba(255, 255, 255, 0.1);
-    backdrop-filter: blur(8px);
+    background: rgba(255, 255, 255, 0.12);
+    backdrop-filter: blur(10px);
     border-radius: 16px;
-    border: 1px solid rgba(255, 255, 255, 0.2);
+    border: 1px solid rgba(255, 255, 255, 0.15);
     transition: all 0.3s ease;
-    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+    box-shadow:
+      0 4px 8px -1px rgba(91, 33, 182, 0.25),
+      0 2px 4px -1px rgba(76, 29, 149, 0.15),
+      inset 0 1px 2px rgba(255, 255, 255, 0.1);
   }
 
   .tarjeta:hover .icon-wrapper {
     transform: translateZ(10px) scale(1.1);
-    border-color: rgba(255, 255, 240, 0.7);
-    box-shadow: 
-      0 0 15px rgba(255, 255, 0, 0.5),
-      0 0 30px rgba(255, 255, 0, 0.3),
-      inset 0 0 15px rgba(255, 255, 255, 0.3);
-    background: rgba(255, 255, 255, 0.2);
+    border-color: rgba(233, 213, 255, 0.5);
+    box-shadow:
+      0 0 15px rgba(139, 92, 246, 0.6),
+      0 0 30px rgba(124, 58, 237, 0.3),
+      inset 0 0 15px rgba(233, 213, 255, 0.2);
+    background: rgba(255, 255, 255, 0.18);
   }
-
-  
 
   .tooltip {
     position: absolute;
     bottom: -30px;
     left: 50%;
     transform: translateX(-50%) translateY(10px);
-    background: rgba(0, 0, 0, 0.8);
-    color: white;
-    padding: 4px 8px;
-    border-radius: 4px;
+    background: rgba(76, 29, 149, 0.85);
+    color: rgb(237, 233, 254);
+    padding: 5px 10px;
+    border-radius: 6px;
     font-size: 12px;
     opacity: 0;
     visibility: hidden;
     transition: all 0.3s ease;
     white-space: nowrap;
     pointer-events: none;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+    border: 1px solid rgba(139, 92, 246, 0.3);
+    backdrop-filter: blur(4px);
   }
 
   .tarjeta:hover .tooltip {
@@ -129,27 +117,45 @@ const getRotationOffset = (totalIcons) => {
       transform: rotateY(360deg) translateZ(180px) translateY(-15px);
       z-index: 10;
       opacity: 1;
+      filter: drop-shadow(0 15px 20px rgba(91, 33, 182, 0.5));
     }
     25% {
       transform: rotateY(270deg) translateZ(180px) translateY(0px);
       z-index: 5;
       opacity: 0.8;
+      filter: drop-shadow(0 10px 15px rgba(91, 33, 182, 0.3));
     }
     50% {
       transform: rotateY(180deg) translateZ(180px) translateY(15px);
       z-index: -10;
       opacity: 0.6;
+      filter: drop-shadow(0 5px 10px rgba(91, 33, 182, 0.2));
     }
     75% {
       transform: rotateY(90deg) translateZ(180px) translateY(0px);
       z-index: 5;
       opacity: 0.8;
+      filter: drop-shadow(0 10px 15px rgba(91, 33, 182, 0.3));
     }
     to {
       transform: rotateY(0deg) translateZ(180px) translateY(-15px);
       z-index: 10;
       opacity: 1;
+      filter: drop-shadow(0 15px 20px rgba(91, 33, 182, 0.5));
     }
   }
 
+  @keyframes float {
+    0%,
+    100% {
+      transform: rotateX(90deg) translateZ(-30px) translateY(0);
+    }
+    50% {
+      transform: rotateX(90deg) translateZ(-30px) translateY(-5px);
+    }
+  }
+
+  .animate-float {
+    animation: float 6s ease-in-out infinite;
+  }
 </style>
