@@ -153,7 +153,7 @@ import Button from './Button.astro';
           <div class="md:w-1/2 p-8">
             <form
               class="space-y-6"
-              action="https://formsubmit.co/lucas.ortega1999qgmail.com"
+              action="https://formsubmit.co/lucas.savyc@gmail.com"
               method="POST"
             >
               <div>
@@ -168,6 +168,8 @@ import Button from './Button.astro';
                   name="name"
                   class="w-full px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-primary focus:border-primary dark:bg-gray-700 dark:text-white"
                   placeholder="Tu nombre"
+                  autocapitalize="off"
+                  autocomplete="off"
                 />
               </div>
 
@@ -198,6 +200,8 @@ import Button from './Button.astro';
                   name="subject"
                   class="w-full px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-primary focus:border-primary dark:bg-gray-700 dark:text-white"
                   placeholder="¿Cómo puedo ayudarte?"
+                  autocapitalize="off"
+                  autocomplete="off"
                 />
               </div>
 
@@ -212,14 +216,11 @@ import Button from './Button.astro';
                   name="message"
                   rows="4"
                   class="w-full px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-primary focus:border-primary dark:bg-gray-700 dark:text-white"
-                  placeholder="Tu mensaje..."></textarea>
+                  placeholder="Tu mensaje..."
+                  autocapitalize="off"
+                  autocomplete="off"></textarea>
               </div>
-              <input
-                type="hidden"
-                name="_next"
-                value="https://portfolio-nine-beta-42.vercel.app/"
-              />
-              <input type="hidden" name="_captcha" value="false" />
+
               <div>
                 <Button type="submit" size="lg" class="w-full">
                   Enviar Mensaje
