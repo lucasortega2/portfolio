@@ -1,34 +1,41 @@
 ---
 import ProjectCard from './ProjectCard.astro';
 import Button from './Button.astro';
-
+import VinotecaNexus from '@/assets/VinotecaNexus.png';
+import HimnarioJovenes from '@/assets/HimnarioJovenes.jpg';
+import FixCity from '@/assets/FixCity.jpg';
 const projects = [
   {
-    title: 'Plataforma de Comercio Electrónico',
+    title: 'Vinoteca Nexus',
     description:
-      'Una plataforma moderna de comercio electrónico construida con React, Node.js y MongoDB. Incluye autenticación de usuarios, catálogo de productos, carrito de compras y procesamiento de pagos.',
-    image:
-      'https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80',
-    tags: ['React', 'Node.js', 'MongoDB', 'API de Stripe'],
-    link: '#',
+      'Una plataforma digital para una vinoteca que permite explorar y descubrir una amplia variedad de vinos, ofreciendo una experiencia visual elegante y moderna para el usuario.',
+    image: VinotecaNexus,
+    tags: ['html', 'css'],
+    icons: ['devicon:astro', 'devicon:javascript', 'devicon:tailwindcss'],
+    link: 'https://vinoteca-six.vercel.app/',
   },
   {
-    title: 'Aplicación de Gestión de Tareas',
+    title: 'FixCity',
     description:
-      'Una aplicación colaborativa de gestión de tareas con actualizaciones en tiempo real, funcionalidad de arrastrar y soltar, y características de colaboración en equipo.',
-    image:
-      'https://images.unsplash.com/photo-1540350394557-8d14678e7f91?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80',
-    tags: ['TypeScript', 'React', 'Firebase', 'Material UI'],
-    link: '#',
+      'Una aplicación móvil que permite a los inspectores registrar,ver y editar las obras que se realizan en la ciudad facilitando la logística entre los mismos.',
+    image: FixCity,
+    tags: ['react native', 'expo'],
+    icons: [
+      'devicon:typescript',
+      'devicon:react',
+      'devicon:tailwindcss',
+      'devicon:firebase',
+    ],
+    link: '',
   },
   {
-    title: 'Panel de Control del Clima',
+    title: 'Himnario de Jóvenes',
     description:
-      'Un panel de control del clima responsivo que muestra las condiciones meteorológicas actuales y pronósticos para múltiples ubicaciones utilizando la API de OpenWeather.',
-    image:
-      'https://images.unsplash.com/photo-1592210454359-9043f067919b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80',
-    tags: ['JavaScript', 'React', 'Chart.js', 'Integración de API'],
-    link: '#',
+      'Una aplicación movil interactiva que reúne himnos y canciones, diseñada para conectar a la comunidad juvenil y facilitar el acceso a recursos musicales.',
+    image: HimnarioJovenes,
+    tags: ['expo', 'astro db'],
+    icons: ['devicon:astro', 'devicon:tailwindcss', 'devicon:typescript'],
+    link: '',
   },
 ];
 ---
@@ -46,8 +53,23 @@ const projects = [
       >
       </div>
       <p class="text-gray-700 dark:text-gray-300">
-        Aquí hay algunos de mis proyectos recientes que muestran mis habilidades
-        técnicas y capacidades de resolución de problemas.
+        Aquí hay algunos de mis proyectos recientes. Podés encontrar más
+        proyectos en mi
+        <a
+          href="https://github.com/lucasortega2"
+          class="group relative inline-block"
+        >
+          <!-- Texto normal -->
+          <span class="transition-colors duration-300 ease-in-out text-accent">
+            GitHub
+          </span>
+          <!-- Capa de gradiente, inicialmente oculta -->
+          <span
+            class="absolute inset-0 bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent opacity-0 transition-opacity duration-300 ease-in-out group-hover:opacity-100"
+          >
+            GitHub
+          </span>
+        </a>
       </p>
     </div>
 
@@ -56,7 +78,7 @@ const projects = [
     </div>
 
     <div class="text-center">
-      <Button href="https://github.com" variant="primary">
+      <Button href="https://github.com " target="_blank" variant="primary">
         Ver Más Proyectos
         <svg
           xmlns="http://www.w3.org/2000/svg"
