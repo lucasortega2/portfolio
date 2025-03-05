@@ -8,7 +8,7 @@
 </button>
 <div
   id="mobile-menu"
-  class="absolute top-0 right-0 flex items-center justify-center transition-all duration-300 transform opacity-0 z-51"
+  class="absolute top-0 right-0 flex items-center justify-center transition-all duration-300 transform opacity-0 z-51 pointer-events-none"
 >
   <ul
     class="flex flex-col gap-8 text-center absolute top-16 right-0 dark:bg-gray-800 p-4 rounded-lg"
@@ -111,28 +111,17 @@
 </style>
 
 <script>
-  // Script para controlar el menú móvil
-  document.addEventListener('DOMContentLoaded', () => {
+  function setupMenu() {
     const menuToggle = document.getElementById('menu-toggle');
     const mobileMenu = document.getElementById('mobile-menu');
     const mobileLinks = document.querySelectorAll('.mobile-link');
     const cover = document.getElementById('cover');
-    // Función para alternar el menú
-    function toggleMenu() {
-      menuToggle.classList.toggle('menu-open');
-      mobileMenu.classList.toggle('menu-active');
 
-      // Bloquear el scroll cuando el menú está abierto
-      document.body.style.overflow = menuToggle.classList.contains('menu-open')
-        ? 'hidden'
-        : '';
-      cover.classList.toggle('hidden');
-    }
+    //listeners
+    menuToggle?.addEventListener('click', toggleMenu);
 
-    // Event listeners
-    menuToggle.addEventListener('click', toggleMenu);
-    cover.addEventListener('click', toggleMenu);
-    // Cerrar el menú al hacer clic en un enlace
+    cover?.addEventListener('click', toggleMenu);
+
     mobileLinks.forEach((link) => {
       link.addEventListener('click', () => {
         toggleMenu();
@@ -147,5 +136,21 @@
         }, 300);
       });
     });
+
+    function toggleMenu() {
+      menuToggle?.classList.toggle('menu-open');
+      mobileMenu?.classList.toggle('menu-active');
+      mobileMenu?.classList.toggle('pointer-events-none');
+      // Bloquear el scroll cuando el menú está abierto
+      document.body.style.overflow = menuToggle?.classList.contains('menu-open')
+        ? 'hidden'
+        : '';
+      cover?.classList.toggle('hidden');
+    }
+  }
+
+  // Script para controlar el menú móvil
+  document.addEventListener('astro:page-load', () => {
+    setupMenu();
   });
 </script>

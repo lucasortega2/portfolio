@@ -16,11 +16,13 @@ const { title, description, image, tags, link, icons } = Astro.props;
 <div
   class="bg-white dark:bg-gray-800 rounded-xl overflow-hidden shadow-md hover:shadow-lg transition-all duration-300 transform hover:scale-[1.01] border border-gray-100 dark:border-gray-700 flex flex-col h-full"
 >
-  <div class="relative overflow-hidden group aspect-[3/4] w-full">
+  <div
+    class="relative overflow-hidden group aspect-[3/4] w-full flex justify-center items-center"
+  >
     <Image
       src={image}
       alt={title}
-      class="w-full h-full object-cover rounded-lg"
+      class="md:w-80 md:h-full h-auto object-cover rounded-lg m-auto p-6"
     />
 
     <div

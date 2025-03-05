@@ -5,18 +5,16 @@ interface Props {
   description: string;
   level?: number;
 }
-
+import { Icon } from 'astro-icon/components';
 const { title, icon, description, level = 0 } = Astro.props;
 ---
 
 <div
-  class="bg-white dark:bg-gray-800 p-6 rounded-xl shadow-md hover:shadow-lg transition-shadow border border-gray-100 dark:border-gray-700 flex flex-col h-full"
+  class="dark:bg-gray-800 p-6 rounded-xl shadow-md hover:shadow-lg transition-shadow border border-gray-100 dark:border-gray-700 flex flex-col h-full"
 >
   <div class="flex items-center mb-4">
-    <div
-      class="w-12 h-12 flex items-center justify-center rounded-lg bg-gradient-to-br from-primary/10 to-secondary/10 mr-4"
-    >
-      <Fragment set:html={icon} />
+    <div class="w-12 h-12 flex items-center justify-center rounded-lg mr-4">
+      {icon && <Icon name={icon} size={48} class="text-primary" />}
     </div>
     <h3
       class="text-xl font-heading font-semibold text-gray-900 dark:text-white"

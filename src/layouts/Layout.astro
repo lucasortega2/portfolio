@@ -4,6 +4,7 @@ interface Props {
   title: string;
   description?: string;
 }
+import { ClientRouter } from 'astro:transitions';
 
 const {
   title,
@@ -14,10 +15,14 @@ import Footer from '@/components/Footer.astro';
 ---
 
 <!doctype html>
-<html lang="en" class="scroll-smooth overflow-x-hidden">
+<html lang="es" class="scroll-smooth overflow-x-hidden">
   <head>
+    <ClientRouter />
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="author" content="Lucas Ortega" />
+    <meta name="keywords" content="portfolio, programador, frontend" />
+
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="generator" content={Astro.generator} />
     <meta name="description" content={description} />
