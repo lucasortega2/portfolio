@@ -3,14 +3,24 @@ import ProjectCard from './ProjectCard.astro';
 import Button from './Button.astro';
 import VinotecaNexus from '@/assets/VinotecaNexus.png';
 import HimnarioJovenes from '@/assets/HimnarioJovenes.jpg';
+import Aeternum from '@/assets/Aeternum.png';
 import FixCity from '@/assets/FixCity.jpg';
 const projects = [
+  {
+    title: 'Aeternum',
+    description:
+      'Ecommerce para la venta de productos de alta calidad, con una interfaz de usuario moderna y una experiencia de compra personalizada.',
+    image: Aeternum,
+    tags: ['Tailwind CSS', 'Typescript'],
+    icons: ['devicon:astro', 'devicon:react', 'devicon:supabase'],
+    link: 'https://www.aeternum.com.ar/',
+  },
   {
     title: 'Vinoteca Nexus',
     description:
       'Una plataforma digital para una vinoteca que permite explorar y descubrir una amplia variedad de vinos, ofreciendo una experiencia visual elegante y moderna para el usuario.',
     image: VinotecaNexus,
-    tags: ['html', 'css'],
+    tags: ['Html', 'Css'],
     icons: ['devicon:astro', 'devicon:javascript', 'devicon:tailwindcss'],
     link: 'https://vinoteca-six.vercel.app/',
   },
@@ -19,7 +29,7 @@ const projects = [
     description:
       'Una aplicación móvil que permite a los inspectores registrar,ver y editar las obras que se realizan en la ciudad facilitando la logística entre los mismos.',
     image: FixCity,
-    tags: ['react native', 'expo'],
+    tags: ['React native', 'Expo'],
     icons: [
       'devicon:typescript',
       'devicon:react',
@@ -33,7 +43,7 @@ const projects = [
     description:
       'Una aplicación movil interactiva que reúne himnos y canciones, diseñada para conectar a la comunidad juvenil y facilitar el acceso a recursos musicales.',
     image: HimnarioJovenes,
-    tags: ['expo', 'astro db'],
+    tags: ['Expo', 'Astro db'],
     icons: ['devicon:astro', 'devicon:tailwindcss', 'devicon:typescript'],
     link: '',
   },
