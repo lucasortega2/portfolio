@@ -2,7 +2,7 @@
 
 Este repositorio contiene mi portafolio web, donde presento quién soy, mis proyectos y las tecnologías que utilizo.
 
-🌐 [Visita mi portafolio]([https://tudominio.com](https://portfolio-nine-beta-42.vercel.app/))
+🌐 [Visita mi portafolio]([https://tudominio.com](https://portfolio-nine-beta-42.vercel.app/)
 
 ---
 
